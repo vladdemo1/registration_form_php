@@ -90,9 +90,10 @@
                                 <input type="submit" name="RegisterSubmit"class="btn btn-info btn-md" value="submit" />
                             </div>
 
-                            <div id="reg_link" class="text-right">
-                                <a href="?login=true" class="text-info">Login here</a>
+                            <div id="dash_link" class="text-right">
+                                <a href="?dashboard=true" class="text-info">List of participants here (<?=$_SESSION['usersCount'];?>)</a>
                             </div>
+
                         </form>
                     </div>
 
