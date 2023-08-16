@@ -6,6 +6,8 @@ class HomeController{
 
     public function indexAction(){
 
+        $_SESSION['usersCount'] = $this->model->GetUsersCount();
+
         if(isset($_GET['logout'])){
             unset($_SESSION['userLogInStatus']);
         }
@@ -54,6 +56,10 @@ class HomeController{
 
         if(isset($_GET['register'])){
             return require_once('views/register.php');
+        }
+
+        if(isset($_GET['dashboard'])){
+            return require_once('views/dashboard.php');
         }
 
         if(isset($_GET['login']) || isset($_GET['logout'])){

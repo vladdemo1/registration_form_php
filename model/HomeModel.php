@@ -12,6 +12,20 @@ class HomeModel{
         return $stmt;
     }
 
+    public function GetUsersCount(){
+        $query = "SELECT count(*) FROM form";
+        $stmt = $this->db->prepare($query)->execute();
+
+        return $stmt;
+    }
+
+    public function GetUsers(){
+        $query = "SELECT * FROM form";
+        $stmt = $this->db->prepare($query)->execute();
+
+        return $stmt;
+    }
+
     public function UserRegister($firstName, $lastName, $birthdate, $reportSubject, $country,
                                  $phone, $email, $company, $position, $aboutMe, $photo){
         $query = "INSERT INTO form (
