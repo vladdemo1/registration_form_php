@@ -61,7 +61,7 @@
                             
                             <div class="form-group">
                                 <label for="email">Email address*</label>
-                                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" required />
+                                <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" required />
                             </div>
 
 
@@ -91,7 +91,7 @@
                             </div>
 
                             <div id="dash_link" class="text-right">
-                                <a href="?dashboard=true" class="text-info">List of participants here (<?=$_SESSION['usersCount'];?>)</a>
+                                <a href="?dashboard=true" class="text-info">List of participants here (<?php echo $users_count; ?>)</a>
                             </div>
 
                         </form>

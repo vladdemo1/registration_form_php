@@ -13,16 +13,17 @@ class HomeModel{
     }
 
     public function GetUsersCount(){
-        $query = "SELECT count(*) FROM form";
-        $stmt = $this->db->prepare($query)->execute();
+
+        $query = "SELECT * FROM form";
+        $stmt = $this->db->query($query)->rowCount();
 
         return $stmt;
     }
 
     public function GetUsers(){
         $query = "SELECT * FROM form";
-        $stmt = $this->db->prepare($query)->execute();
 
+        $stmt = $this->db->query($query);
         return $stmt;
     }
 

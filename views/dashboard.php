@@ -26,12 +26,9 @@
          <th>Email</th>
       </tr>
 
-      <tr>
-         <td><img src="images/default_user.png" alt="" /></td>
-         <td>Vlad Demcenko</td>
-         <td>Myself</td>
-         <td>jane.doe@foo.com</td>
-      </tr>
+<?php
+echo $users;
+?>
    </table>
 
 
