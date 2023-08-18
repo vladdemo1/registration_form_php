@@ -70,6 +70,5 @@ class HomeModel{
 
         $this->db->prepare($query)->execute();
 
-        return 1;
     }
 }
