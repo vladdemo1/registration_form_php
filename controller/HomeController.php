@@ -1,25 +1,20 @@
 <?php
 
 class HomeController{
+/*
+* Main controller for this project
+*/
 
     public $model;
 
     public function indexAction(){
-
-        if(isset($_GET['logout'])){
-            unset($_SESSION['userLogInStatus']);
-        }
-
-        if(isset($_POST['LoginSubmit'])){
-            $username = $_POST['username'];
-            $password = $_POST['password'];
-
-            $checkUserLogin = $this->model->CheckUserLogin($username, md5($password));
-
-            if($checkUserLogin==1){
-                $_SESSION['userLogInStatus']=1;
-            }
-        }
+    /*
+    * Get's actions from page
+    *
+    * @return view with users list
+    *
+    * @access public
+    */
 
         if(isset($_POST['RegisterSubmit'])){
             $firstName = $_POST['firstName'];
@@ -39,7 +34,8 @@ class HomeController{
             $this->model->UserRegister($firstName, $lastName, $birthdate,
                                        $reportSubject, $country, $phone, $email,
                                        $company, $position, $aboutMe, $photo);
-            $_SESSION['userLogInStatus']=1;
+
+            return require_once('views/dashboard.php');
 
         }
 
@@ -47,20 +43,57 @@ class HomeController{
     }
 
     public function routeManager(){
+    /*
+    * main router 
+    *
+    * @return view with context
+    *
+    * @access public
+    */
 
-        if(isset($_SESSION['userLogInStatus'])){
-            return require_once('views/dashboard.php');
-        }
+        $users_count = $this->model->GetUsersCount();
 
         if(isset($_GET['register'])){
+
             return require_once('views/register.php');
         }
 
-        if(isset($_GET['login']) || isset($_GET['logout'])){
-            return require_once('views/login.php');
+        if(isset($_GET['dashboard'])){
+
+            $users = self::getUsersForThisPlace();
+
+            return require_once('views/dashboard.php');
         }
         
         # default page
         return require_once('views/register.php');
+    }
+    public function getUsersForThisPlace(){
+    /*
+    * rendering part of table with users list
+    *
+    * @return part of table with users
+    *
+    * @access public
+    */
+        $result = $this->model->GetUsers();
+
+        if ($result->rowCount() == 0) {
+            return false;
+        }
+
+        $content = '<tr>';
+        
+
+        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                $content .= '<td><img src="images/default_user.png" alt="" /></td>';
+                $content .= '<td>'.$row['first_name'].' '.$row['last_name'].'</td>';
+                $content .= '<td>'.$row['report_subject'].'</td>';
+                $content .= '<td>'.$row['email'].'</td>';
+                $content .= '</tr>';
+
+        }
+        
+        return $content;
     }
 }

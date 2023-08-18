@@ -1,6 +1,9 @@
 <?php
 
 class Connection{
+/*
+* Main connection with database
+*/
 
     # singleton for once connect to db
     public static $connection = false;
@@ -10,6 +13,13 @@ class Connection{
     }
 
     public static function connect($config){
+    /*
+    * Set connection with database
+    *
+    * @return connection
+    *
+    * @access public
+    */
 
     try
     {

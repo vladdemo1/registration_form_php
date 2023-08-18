@@ -61,7 +61,7 @@
                             
                             <div class="form-group">
                                 <label for="email">Email address*</label>
-                                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" required />
+                                <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" required />
                             </div>
 
 
@@ -90,9 +90,10 @@
                                 <input type="submit" name="RegisterSubmit"class="btn btn-info btn-md" value="submit" />
                             </div>
 
-                            <div id="reg_link" class="text-right">
-                                <a href="?login=true" class="text-info">Login here</a>
+                            <div id="dash_link" class="text-right">
+                                <a href="?dashboard=true" class="text-info">List of participants here (<?php echo $users_count; ?>)</a>
                             </div>
+
                         </form>
                     </div>
 
