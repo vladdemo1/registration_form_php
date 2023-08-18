@@ -34,7 +34,8 @@ class HomeController{
             $this->model->UserRegister($firstName, $lastName, $birthdate,
                                        $reportSubject, $country, $phone, $email,
                                        $company, $position, $aboutMe, $photo);
-
+            
+            $users = self::getUsersForThisPlace();
             return require_once('views/dashboard.php');
 
         }
@@ -58,7 +59,7 @@ class HomeController{
             return require_once('views/register.php');
         }
 
-        if(isset($_GET['dashboard'])){
+        if(isset($_GET['dashboard']) or isset($_POST['dashboard'])){
 
             $users = self::getUsersForThisPlace();
 
