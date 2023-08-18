@@ -43,10 +43,17 @@ class HomeController{
     }
 
     public function routeManager(){
+    /*
+    * main router 
+    *
+    * @return view with context
+    *
+    * @access public
+    */
+
+        $users_count = $this->model->GetUsersCount();
 
         if(isset($_GET['register'])){
-
-            $users_count = $this->model->GetUsersCount();
 
             return require_once('views/register.php');
         }
@@ -62,6 +69,13 @@ class HomeController{
         return require_once('views/register.php');
     }
     public function getUsersForThisPlace(){
+    /*
+    * rendering part of table with users list
+    *
+    * @return part of table with users
+    *
+    * @access public
+    */
         $result = $this->model->GetUsers();
 
         if ($result->rowCount() == 0) {
