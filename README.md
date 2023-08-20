@@ -21,7 +21,7 @@ Congratulations! Now you can run the project with the following command
 
 ### Main part
 
-- Form has been created
+- Form has been created in wizard style
 - Used PDO to work with the database
 - Google map has been added to the page
 - Social media buttons
@@ -36,38 +36,38 @@ The main page can be viewed at the [following address](http://127.0.0.1:8001/)
 
 The main page displays a google map and a participant form
 
-## What has been done
+## I didn't have time to do it, but somehow I did it
 
-### Part
+### Saving a photo
 
-text text text
+This application saves the name of the photo, which will be taken from the storage
 
+### Sharing buttons display
 
-# I didn't have time to do it, but somehow I did it
+To do this, it would be possible to hide them using JS and show them only at the time of submitting the form
 
-## Wizard Form
+### Not hitting the same part of the after reloading
 
-Wizard style form would be written using css js
+To do this, it would be possible to use a session variable and store in the position of the form to be displayed after the page is reloaded
 
+## What was used in the development of the project
 
-# What was used in the development of the project
-
-## OS
+### OS
 
     Linux Ubuntu 22.04.02 LTS
 
-## Text editor
+### Text editor
 
     VS Code
 
-## Git
+### Git
 
     GitHub
 
-## Programming language
+### Programming language
 
     PHP
 
-## Web
+### Web
 
     HTML CSS JS Bootstrap
