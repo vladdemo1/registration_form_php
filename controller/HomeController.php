@@ -51,8 +51,13 @@ class HomeController{
     *
     * @access public
     */
+        include 'config.php';
 
         $users_count = $this->model->GetUsersCount();
+
+        $google_map_link = $config['address'];
+
+        $tw_text = $config['message'];
 
         if(isset($_GET['register'])){
 
